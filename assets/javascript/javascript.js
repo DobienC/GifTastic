@@ -1,9 +1,9 @@
-var buttonList = [];
+var buttonList = ["Batman","Superman","Flash","Aquaman","Green Lantern"];
 
 // Giphy API Key = q5G3c9kFDg7fqIGz2723OIC3cyV4f2uf
 // http://api.giphy.com/v1/gifs/search?q=cat&api_key=q5G3c9kFDg7fqIGz2723OIC3cyV4f2uf&limit=5
 
-
+makeButton();
 $("#add-gif").on("click", function(event){
     event.preventDefault();
 
@@ -50,14 +50,17 @@ function getGif() {
             console.log(i);
             var $gifDiv = $("<div>");
             var $gifImg = $("<img>");
+            var $p = $("<p>");
             // $gifImg.attr("class","gif-click");
             
             $gifImg.attr("data-still",results[i].images.original_still.url);
             $gifImg.attr("data-animate",results[i].images.fixed_height.url);
             $gifImg.attr("src", results[i].images.fixed_height.url);
+            $p.text("Rating: " + results[i].rating);
             // $gifImg.attr("id", "gif-img");
             $gifImg.addClass("gif-img");
             $gifImg.attr("data-state", "animate");
+            $gifDiv.append($p);
             $gifDiv.append($gifImg);
             // $(".gifs").append($gifDiv);
             $(".gifs").append($gifDiv);    

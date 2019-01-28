@@ -1,4 +1,27 @@
+body{
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 img{
     float: left;
     margin: 5px 5px 5px 5px;
+}
+
+button{
+    margin: 5px 5px 5px 5px; 
+}
+
+.button-array{
+    /* background-color: #1ea8aa; */
+    /* border: black; */
+    border-left: 10px solid #1ea8aa;
+    background-color: lightgrey;
+}
+
+.data-collector{
+    background-color: #1ea8aa;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 5px;
 }

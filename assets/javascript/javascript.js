@@ -59,6 +59,7 @@ function getGif() {
             $gifImg.addClass("gif-img");
             $gifImg.attr("data-state", "animate");
             $gifDiv.append($gifImg);
+            // $(".gifs").append($gifDiv);
             $(".gifs").append($gifDiv);    
         }
         // console.log(results[0].url);
@@ -66,14 +67,14 @@ function getGif() {
 }
 
 $(".gif-img").on("click", function(){
+    console.log("test");
     var state = $(this).attr("data-state");
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-      } else {
+    } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-      }
-      console.log("test");
+    }
 });
 

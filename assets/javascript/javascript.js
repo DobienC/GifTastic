@@ -44,7 +44,36 @@ function getGif() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-        console.log(response);
+        var results = response.data;
+        $(".gifs").empty();
+        for(var i = 0; i < 10; i++){
+            console.log(i);
+            var $gifDiv = $("<div>");
+            var $gifImg = $("<img>");
+            // $gifImg.attr("class","gif-click");
+            
+            $gifImg.attr("data-still",results[i].images.original_still.url);
+            $gifImg.attr("data-animate",results[i].images.fixed_height.url);
+            $gifImg.attr("src", results[i].images.fixed_height.url);
+            // $gifImg.attr("id", "gif-img");
+            $gifImg.addClass("gif-img");
+            $gifImg.attr("data-state", "animate");
+            $gifDiv.append($gifImg);
+            $(".gifs").append($gifDiv);    
+        }
+        // console.log(results[0].url);
     });
-  }
+}
+
+$(".gif-img").on("click", function(){
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+      console.log("test");
+});
 
